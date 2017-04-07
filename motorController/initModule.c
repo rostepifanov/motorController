@@ -4,6 +4,8 @@
 #include "pinRegistration.h"
 #include "timeControl.h"
 
+#include "movingControl.h"
+
 //CNF
 //00: General purpose output push-pull
 //01: General purpose output Open-drain
@@ -62,20 +64,7 @@ static void initClockGPIO(void)
 	RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
 }
 
-void initMotor(pDescriptor pinOne, pDescriptor pinTwo, pDescriptor pinThree, pDescriptor pinFour)
-{
-	recordPushPullModePin(pinOne);
-	recordOutputModePin(pinOne);
-	
-	recordPushPullModePin(pinTwo);
-	recordOutputModePin(pinTwo);
-	
-	recordPushPullModePin(pinThree);
-	recordOutputModePin(pinThree);
-	
-	recordPushPullModePin(pinFour);
-	recordOutputModePin(pinFour);
-}
+
 
 void init(void)
 {

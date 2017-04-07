@@ -1,10 +1,8 @@
-#include "typeDef.h"
-
 #ifndef timeControl
 #define timeControl
 
 void initTimer(void);
 
-void timeWait(uint_32 lenght);
+void timeWait(uint32_t lenght);
 
 #endif

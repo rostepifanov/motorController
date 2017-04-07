@@ -9,3 +9,4 @@
 .\objects\initmodule.o: initModule.h
 .\objects\initmodule.o: pinRegistration.h
 .\objects\initmodule.o: timeControl.h
+.\objects\initmodule.o: movingControl.h

@@ -12,13 +12,13 @@ void setBooleanOne(pDescriptor pin)
 	switch (pin.type)  
   {  
 	case typeA:
-		GPIOA->BSRR |= (uint32_t)0x0001 << pin.number;
+		GPIOA->BSRR = (uint32_t)0x0001 << pin.number;
 		break;  
 	case typeB:
-		GPIOB->BSRR |= (uint32_t)0x0001 << pin.number;	
+		GPIOB->BSRR = (uint32_t)0x0001 << pin.number;	
 		break;  
 	case typeC: 
-		GPIOC->BSRR |= (uint32_t)0x0001 << pin.number;
+		GPIOC->BSRR = (uint32_t)0x0001 << pin.number;
 		break;  
 	}  
 }
@@ -28,13 +28,13 @@ void setBooleanZero(pDescriptor pin)
 	switch (pin.type)  
   {  
 	case typeA:
-		GPIOA->BSRR |= (uint32_t)0x00010000 << pin.number;
+		GPIOA->BSRR = (uint32_t)0x00010000 << pin.number;
 		break;  
 	case typeB:
-		GPIOB->BSRR |= (uint32_t)0x00010000 << pin.number;	
+		GPIOB->BSRR = (uint32_t)0x00010000 << pin.number;	
 		break;  
 	case typeC: 
-		GPIOC->BSRR |= (uint32_t)0x00010000 << pin.number;
+		GPIOC->BSRR = (uint32_t)0x00010000 << pin.number;
 		break;  
 	}  
 }

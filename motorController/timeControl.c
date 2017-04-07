@@ -10,11 +10,11 @@ void initTimer(void)
 	SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk | SysTick_CTRL_TICKINT_Msk;
 }
 
-void timeWait(uint_32 lenght)
+void timeWait(uint32_t lenght)
 {	
 	SysTick->VAL = 0;
 	
-	int uint_32 = 0;
+	uint32_t count = 0;
 	
 	while(count != lenght) 
 	{

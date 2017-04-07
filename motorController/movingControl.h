@@ -5,11 +5,11 @@
 #ifndef movingControl
 #define movingControl
 
-typedef enum direction 
+enum dir
 {
 	clockwise,
 	contrClockwise
-} dir;
+};
 
 enum state 
 {
@@ -22,32 +22,21 @@ enum state
 	A2B2,
 	B2A1
 };
-	
-enum state fullStep[4][2] =
-{
-  [A1B1][clockwise] = B1A2,
-  [B1A2][clockwise] = A2B2,
-	[A2B2][clockwise] = B2A1,
-	[B2A1][clockwise] = A1B1,
-	
-	[A1B1][contrClockwise] = B2A1,
-  [B2A1][contrClockwise] = A2B2,
-	[A2B2][contrClockwise] = B1A2,
-	[B1A2][contrClockwise] = A1B1
-};
 
-//typedef struct motorDescriptor
-//{
-//	//for 0.1 ms
-//	pDescriptor pinA1;
-//	pDescriptor pinA2;
-//	pDescriptor pinB1;
-//	pDescriptor pinB2;
-//	uint_32 pulseTimeInTick;
-//	uint_32 tickTime;
-//	state motorState;
-//	dir dirRotation;
-//} mDescriptor;
+
+
+typedef struct motorDescriptor
+{
+	//for 0.1 ms
+	pDescriptor pinA1;
+	pDescriptor pinA2;
+	pDescriptor pinB1;
+	pDescriptor pinB2;
+	uint32_t pulseTimeInTick;
+	uint32_t tickCounter;
+	enum state motorState;
+	enum dir dirRotation;
+} mDescriptor;
 
 void clockwiseFullStepODR(int pulseLenth);
 void clockwiseFullStep(int pulseLenth);
