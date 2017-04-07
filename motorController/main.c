@@ -95,12 +95,13 @@ void disactivePins(mDescriptor motor)
 
 void inquiryMotor(mDescriptor motor)
 {
-	motor.tickCounter++;
-	if(motor.tickCounter != motor.pulseTimeInTick)
+	motor.tickCounter = motor.tickCounter + 1;
+	if(motor.tickCounter == motor.pulseTimeInTick)
 	{
 		disactivePins(motor);
 		motorStep(motor); 
 		activePins(motor);
+		motor.tickCounter = 0;
 	}
 }
 	
@@ -124,13 +125,18 @@ void motorHardDescription(void)
 	pin.type = typeB;
 	pin.number = 10;
 	motorOne.pinB1 = pin;
+	
+	motorOne.pulseTimeInTick = 14;
+	motorOne.tickCounter = 0;
+	motorOne.motorState = A1B1;
+	motorOne.dirRotation = clockwise;
 }
 
 vDescriptor test;
 
 void SysTick_Handler(void)
 {
-	inquiryMotor(test.motorOne);
+	//inquiryMotor(test.motorOne);
 }
 
 int main(void) 
@@ -148,9 +154,15 @@ int main(void)
 	//	clockwiseFullStepODRDual(14);
 	//}
 	
+	GPIOC->BSRR = GPIO_BSRR_BR13;
+	
+	
 	while (1)
 	{
 	//	clockwiseFullStepODRDualForTwo(14);
-		GPIOC->BSRR = GPIO_BSRR_BR13;
+		disactivePins(motorOne);
+		motorOne.motorState = fullStep[motorOne.motorState][motorOne.dirRotation]; 
+		activePins(motorOne);
+		timeWait(20);
 	}
 }
