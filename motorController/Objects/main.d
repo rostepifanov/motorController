@@ -7,7 +7,11 @@
 .\objects\main.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\system_stm32f10x.h
 .\objects\main.o: initModule.h
-.\objects\main.o: movingControl.h
+.\objects\main.o: motorDescription.h
 .\objects\main.o: pinRegistration.h
+.\objects\main.o: movingControl.h
+.\objects\main.o: motorDescription.h
 .\objects\main.o: timeControl.h
+.\objects\main.o: motorHardDescription.h
+.\objects\main.o: motorDescription.h
 .\objects\main.o: pinOutputChanging.h

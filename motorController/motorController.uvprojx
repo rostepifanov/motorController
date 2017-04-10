@@ -434,6 +434,21 @@
               <FileType>5</FileType>
               <FilePath>.\pinOutputChanging.h</FilePath>
             </File>
+            <File>
+              <FileName>motorHardDescription.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\motorHardDescription.c</FilePath>
+            </File>
+            <File>
+              <FileName>motorHardDescription.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\motorHardDescription.h</FilePath>
+            </File>
+            <File>
+              <FileName>motorDescription.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\motorDescription.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

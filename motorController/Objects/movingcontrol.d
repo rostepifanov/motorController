@@ -8,4 +8,6 @@
 .\objects\movingcontrol.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\system_stm32f10x.h
 .\objects\movingcontrol.o: movingControl.h
 .\objects\movingcontrol.o: pinRegistration.h
+.\objects\movingcontrol.o: motorDescription.h
 .\objects\movingcontrol.o: timeControl.h
+.\objects\movingcontrol.o: pinOutputChanging.h

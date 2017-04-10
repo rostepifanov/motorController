@@ -3,8 +3,7 @@
 #include "initModule.h"
 #include "pinRegistration.h"
 #include "timeControl.h"
-
-#include "movingControl.h"
+#include "motorDescription.h"
 
 //CNF
 //00: General purpose output push-pull
@@ -18,7 +17,7 @@
 //10: Output mode, max speed 2 MHz.
 //11: Output mode, max speed 50 MHz
 
-void initLed(void)
+static void initLed(void)
 {
 	pDescriptor led;
 	led.number = 13;
@@ -28,35 +27,6 @@ void initLed(void)
 	recordOutputModePin(led);
 }
 
-void initFirstMotor(void)
-{
-	//PB10 - black
-	//PC14 - white
-	//PB11 - gray
-	//PC15 - violet
-	
-	{//B10
-		GPIOB->CRH &= ~GPIO_CRH_CNF10;
-		GPIOB->CRH &= ~GPIO_CRH_MODE10;
-		GPIOB->CRH |= GPIO_CRH_MODE10_1;
-	}
-	{//B11
-		GPIOB->CRH &= ~GPIO_CRH_CNF11;
-		GPIOB->CRH &= ~GPIO_CRH_MODE11;
-		GPIOB->CRH |= GPIO_CRH_MODE11_1;
-	}
-	{//C14
-		GPIOC->CRH &= ~GPIO_CRH_CNF14;
-		GPIOC->CRH &= ~GPIO_CRH_MODE14;
-		GPIOC->CRH |= GPIO_CRH_MODE14_1;
-	}
-	{//C15
-		GPIOC->CRH &= ~GPIO_CRH_CNF15;
-		GPIOC->CRH &= ~GPIO_CRH_MODE15;
-		GPIOC->CRH |= GPIO_CRH_MODE15_1;
-	}
-}
-
 static void initClockGPIO(void)
 {
 	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
@@ -64,15 +34,26 @@ static void initClockGPIO(void)
 	RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
 }
 
-
-
 void init(void)
 {
 	initClockGPIO();
 	
 	initLed();
 	
-	//initMotor();
-	
 	initTimer();
+}
+
+ void initMotor(mDescriptor motor)
+{
+	recordPushPullModePin(motor.pinA1);
+	recordOutputModePin(motor.pinA1);
+	
+	recordPushPullModePin(motor.pinA2);
+	recordOutputModePin(motor.pinA2);
+	
+	recordPushPullModePin(motor.pinB1);
+	recordOutputModePin(motor.pinB1);
+	
+	recordPushPullModePin(motor.pinB2);
+	recordOutputModePin(motor.pinB2);
 }

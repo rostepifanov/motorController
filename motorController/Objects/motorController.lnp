@@ -4,6 +4,7 @@
 ".\objects\pinregistration.o"
 ".\objects\movingcontrol.o"
 ".\objects\pinoutputchanging.o"
+".\objects\motorharddescription.o"
 ".\objects\timecontrol.o"
 ".\objects\startup_stm32f10x_md.o"
 ".\objects\system_stm32f10x.o"
